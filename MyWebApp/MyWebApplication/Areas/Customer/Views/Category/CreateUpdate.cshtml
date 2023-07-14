@@ -1,0 +1,42 @@
+﻿@model CustomerVM
+<form method="post">
+    <fieldset>
+        <div class="form-group">
+            <input type="hidden"  asp-for="Category.Id"/>
+            <label for="exampleInputName" class="form-label mt-4">Name</label>
+            <input type="text" asp-for="Category.Name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name">
+            <span asp-validation-for="Category.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="">
+                <label for="exampleInputDisplayOrder" class="form-label mt-4">DisplayOrder</label>
+                <input type="number" asp-for="Category.DisplayOrder" class="form-control" id="exampleInputDisplayOrder" placeholder="DisplayOrder">
+                <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
+            </div>
+
+            <div style="padding-top:10px;">
+                @if (Model.Category?.Id == 0 || Model.Category?.Id == null)
+                {
+                    <button type="submit" class="btn btn-primary">Create</button>
+                }else
+                {
+                    <button type="submit" class="btn btn-primary">Update</button>
+                }
+            </div>
+        </div>
+        <div class="test">
+            <div class="row">
+                <div class="col-6">
+                    <a asp-area="Customer" asp-controller="Category" asp-action="Index">Back to list</a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+   
+</form>
+
+@section scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

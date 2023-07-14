@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CategoryVM>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h4>Category</h4>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-controller="Category" asp-action="CreateUpdate"><i class="bi bi-plus-circle"></i>&nbsp; Create New Category</a>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">DisplayOrder</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-active">
+                <td scope="row">
+                    @item.Category.Name
+                </td>
+                <td scope="row">
+                    @item.Category.DisplayOrder
+                </td>
+                <td scope="row">
+                    <a asp-controller="Category" asp-action="CreateUpdate" asp-route-id="@item.Category.Id"><i class="bi bi-pencil-square"></i></a>
+                    <a asp-controller="Category" asp-action="Delete" asp-route-id="@item.Category.Id"><i class="bi bi-trash3"></i></a>
+                </td>
+            </tr>
+        }
+       
+    </tbody>
+</table>

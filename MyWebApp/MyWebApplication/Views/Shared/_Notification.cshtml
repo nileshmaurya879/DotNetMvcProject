@@ -1,0 +1,19 @@
+﻿@if (@TempData["success"] != null)
+{
+    //cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
+    <script src="~/lib/jquery/dist/jquery.js">
+       
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
+
+    </script>
+
+    <script>
+        toastr.options.newestOnTop = false;
+
+        toastr.success('@TempData["success"]')
+
+        toastr.options.timeOut = 70;
+    </script>
+}
